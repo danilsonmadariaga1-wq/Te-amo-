@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Arial', sans-serif;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1{
+    font-size:70px;
+    margin-bottom:20px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    transition:0.3s;
+}
+					
+button:hover{
+    transform: scale(1.1);
+    background:#ffe3ec;
+}
+
+#mensaje{
+    margin-top:20px;
+    font-size:20px;
+    display:none;
+    max-width:500px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>TE AMO ❤️</h1>
+    
+    <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+    
+    <div id="mensaje">
+        Aquí va el mensaje que quieres escribirle.  
+        Puedes poner algo como:  
+        "Desde que llegaste a mi vida todo es más bonito.  
+        Quiero que seas mi casualidad favorita todos los días ❤️"
+    </div>
+</div>
+
+<script>
+function mostrarMensaje(){
+    document.getElementById("mensaje").style.display = "block";
+}
+</script>
+
+</body>
+</html>
