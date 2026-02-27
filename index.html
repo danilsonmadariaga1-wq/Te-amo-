@@ -3,53 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Ti ❤️</title>
+<title>Pa sumerce mamasota:3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 body{
     margin:0;
     padding:0;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     height:100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family: 'Arial', sans-serif;
+    overflow:hidden;
+    font-family: 'Dancing Script', cursive;
     text-align:center;
     color:white;
+    transition: background 3s ease;
+}
+
+.sunset{
+    background: linear-gradient(135deg, #ff9966, #ff5e62, #f9d423);
 }
 
 .container{
+    z-index:2;
     animation: fadeIn 2s ease-in-out;
+    padding:25px;
+    max-width:700px;
 }
 
 h1{
-    font-size:70px;
-    margin-bottom:20px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    font-size:65px;
+    margin-bottom:10px;
+    text-shadow:0 0 25px rgba(255,255,255,0.8);
+}
+
+h2{
+    font-weight:normal;
+    margin-bottom:25px;
+    font-size:28px;
 }
 
 button{
     padding:15px 30px;
-    font-size:18px;
+    font-size:20px;
     border:none;
     border-radius:30px;
     cursor:pointer;
     background:white;
-    color:#ff4d6d;
+    color:#ff5e62;
     transition:0.3s;
+    font-family: 'Dancing Script', cursive;
 }
-					
+
 button:hover{
-    transform: scale(1.1);
-    background:#ffe3ec;
+    transform:scale(1.1);
+    background:#fff0f3;
 }
 
 #mensaje{
     margin-top:20px;
-    font-size:20px;
+    font-size:24px;
+    line-height:1.7;
     display:none;
-    max-width:500px;
+    white-space:pre-line;
+    opacity:0;
+}
+
+#atardecer{
+    margin-top:30px;
+    font-size:70px;
+    opacity:0;
+}
+
+/* Emojis flotando */
+
+.float{
+    position:absolute;
+    bottom:-20px;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{ transform:translateY(0); opacity:1; }
+    100%{ transform:translateY(-110vh); opacity:0; }
 }
 
 @keyframes fadeIn{
@@ -61,23 +100,72 @@ button:hover{
 
 <body>
 
+<audio id="marAudio" loop>
+    <source src="mar.mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
-    <h1>TE AMO ❤️</h1>
-    
-    <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
-    
+    <h1>TE AMO MAMACITA</h1>
+    <h2>Para Yane ☕🍃</h2>
+
+    <button onclick="mostrarMensaje()">no se me vaya a enamorar jsjsjs</button>
+
     <div id="mensaje">
-        Aquí va el mensaje que quieres escribirle.  
-        Puedes poner algo como:  
-        "Desde que llegaste a mi vida todo es más bonito.  
-        Quiero que seas mi casualidad favorita todos los días ❤️"
+Por ti me rompo y me reconstruyo,
+me hago fuerte y vulnerable al mismo tiempo.
+Si el mundo se pone en tu contra,
+yo me pongo de tu lado sin pensarlo.
+Por ti dejo el miedo,
+dejo el orgullo,
+dejo todo lo que no sea amarte.
+No eres una opción en mi vida,
+eres la razón por la que late.
+A veces crees que no te pienso,
+pero no sabes que te llevo en cada segundo...
     </div>
+
+    <div id="atardecer">🌅</div>
 </div>
 
 <script>
 function mostrarMensaje(){
-    document.getElementById("mensaje").style.display = "block";
+    let mensaje = document.getElementById("mensaje");
+    let atardecer = document.getElementById("atardecer");
+    let audio = document.getElementById("marAudio");
+
+    mensaje.style.display="block";
+    
+    setTimeout(function(){
+        mensaje.style.transition="opacity 2s";
+        mensaje.style.opacity="1";
+    },100);
+
+    setTimeout(function(){
+        atardecer.style.transition="opacity 3s";
+        atardecer.style.opacity="1";
+        document.body.classList.add("sunset");
+        audio.volume = 0.3;
+        audio.play();
+    },3000);
+
+    document.querySelector("button").style.display="none";
 }
+
+// ☕ y 🍃 flotando
+const emojis = ["☕️","🍃"];
+
+setInterval(function(){
+    let item = document.createElement("div");
+    item.className="float";
+    item.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+    item.style.left=Math.random()*100+"vw";
+    item.style.fontSize=(Math.random()*28+18)+"px";
+    document.body.appendChild(item);
+
+    setTimeout(function(){
+        item.remove();
+    },8000);
+},700);
 </script>
 
 </body>
